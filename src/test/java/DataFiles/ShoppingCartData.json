@@ -1,0 +1,10 @@
+{
+  "dataset": [
+    {
+      "name" : "MacBook",
+      "description" : "Intel Core 2 Duo processor Powered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, t..",
+      "price" : 602.00,
+      "priceWithTaxes" : 500.00
+    }
+  ]
+}
