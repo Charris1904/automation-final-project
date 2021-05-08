@@ -1,5 +1,6 @@
 package PageObjects;
 
+import Pojo.Usuario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,22 +22,22 @@ public class RegisterPage {
         this.driver = driver;
     }
 
-    public void setValuesRegister(String firstname, String lastname, String email, String telephone, String password, String confirmation,
-                                  Boolean isSusbcribe, Boolean privacy) {
-        driver.findElement(firstNameField).sendKeys(firstname);
-        driver.findElement(lastNameField).sendKeys(lastname);
-        driver.findElement(emailField).sendKeys(email);
-        driver.findElement(telephoneField).sendKeys(telephone);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(confirmPasswordField).sendKeys(confirmation);
-        if (isSusbcribe) {
+    public void setValuesRegister(Usuario usuario) {
+        driver.findElement(firstNameField).sendKeys(usuario.getFirstName());
+        driver.findElement(lastNameField).sendKeys(usuario.getLastName());
+        driver.findElement(emailField).sendKeys(usuario.getEmail());
+        driver.findElement(telephoneField).sendKeys(usuario.getTelephone());
+        driver.findElement(passwordField).sendKeys(usuario.getPassword());
+        driver.findElement(confirmPasswordField).sendKeys(usuario.getConfirmPassword());
+        if (usuario.getSubscribe()) {
             driver.findElement(subscribeCheckBoxYes).click();
         }else {
             driver.findElement(subscribeCheckBoxNo).click();
         }
-        if (privacy) {
+        if (usuario.getPrivacyPolicy()) {
             driver.findElement(privacyPolicyCheckBox).click();
         }
+        System.out.println("Se ha registrado una persona con los siguientes datos: " + usuario );
     }
 
     public SuccessPage clickContinueButton(){
