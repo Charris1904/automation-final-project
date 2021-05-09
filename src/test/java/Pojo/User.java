@@ -1,6 +1,6 @@
 package Pojo;
 
-public class Usuario {
+public class User {
 
     private String firstName;
     private String lastName;
@@ -11,7 +11,7 @@ public class Usuario {
     private Boolean isSubscribe;
     private Boolean privacyPolicy;
 
-    public Usuario(String firstName, String lastName, String email, String telephone, String password, String confirmPassword, Boolean isSubscribe, Boolean privacyPolicy) {
+    public User(String firstName, String lastName, String email, String telephone, String password, String confirmPassword, Boolean isSubscribe, Boolean privacyPolicy) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
