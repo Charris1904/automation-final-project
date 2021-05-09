@@ -85,4 +85,14 @@ public class Usuario {
     public void setPrivacyPolicy(Boolean privacyPolicy) {
         this.privacyPolicy = privacyPolicy;
     }
+
+    @Override
+    public String toString() {
+        return  "First Name : " + firstName + '\'' +
+                ", Last Name : " + lastName + '\'' +
+                ", Email : " + email + '\'' +
+                ", Telephone : " + telephone + '\'' +
+                ", Subscribe? : " + isSubscribe +
+                ", Privacy Policy Accepted? : " + privacyPolicy;
+    }
 }

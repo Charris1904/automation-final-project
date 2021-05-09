@@ -5,3 +5,4 @@
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/.name
+*.class
