@@ -10,12 +10,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
 
     private WebDriver driver;
+    private String productName;
     private By myAccountLink = By.linkText("My Account");
     private By registerLink = By.linkText("Register");
     private By searchBar = By.xpath("//input[@type=\"text\"]");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public HomePage(WebDriver driver, String productName) {
+        this.driver = driver;
+        this.productName = productName;
     }
 
     public RegisterPage clickRegisterPage(){
@@ -25,8 +31,8 @@ public class HomePage {
         return new RegisterPage(driver);
     }
 
-    public SearchPage searchProduct(String productName){
+    public SearchPage searchProduct(){
         driver.findElement(searchBar).sendKeys(productName, Keys.ENTER);
-        return new SearchPage(driver);
+        return new SearchPage(driver, productName);
     }
 }

@@ -15,9 +15,9 @@ public class ShoppingCartTests extends BaseTests {
             dataProvider = "getSearchProductsDataFromJson",
             dataProviderClass = ShoppingCartDataProvider.class)
     public void testAddProductToShoppingCart(Product product){
-        HomePage homePage = new HomePage(driver);
-        SearchPage searchPage = homePage.searchProduct(product.getName());
-        searchPage.addProductToShoppingCart(product.getName());
+        HomePage homePage = new HomePage(driver, product.getName());
+        SearchPage searchPage = homePage.searchProduct();
+        searchPage.addProductToShoppingCart();
         CartPage cart = searchPage.clickShoppingCartLink();
         assertTrue(cart.getProductName(product.getName()).equals(product.getName()));
     }
