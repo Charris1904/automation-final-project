@@ -9,6 +9,26 @@
       "confirmPassword" :  "persona1",
       "isSubscribe" :  false,
       "privacyPolicy" :  true
+    },
+    {
+      "firstName" :  "Nombre Persona 2",
+      "lastName" :  "Apellido Persona 2",
+      "email" :  "test22222222222222222222222222222222222222222@gmail.com",
+      "telephone" :  "12345678",
+      "password" :  "persona2",
+      "confirmPassword" :  "persona2",
+      "isSubscribe" :  false,
+      "privacyPolicy" :  true
+    },
+    {
+      "firstName" :  "Nombre Persona 3",
+      "lastName" :  "Apellido Persona 3",
+      "email" :  "test@gmail.com",
+      "telephone" :  "12345678",
+      "password" :  "persona3",
+      "confirmPassword" :  "persona3",
+      "isSubscribe" :  false,
+      "privacyPolicy" :  true
     }
   ]
 }

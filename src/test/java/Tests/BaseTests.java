@@ -35,13 +35,13 @@ public class BaseTests {
     }
 
     @AfterClass
-    public void recordFailure() {
+    public void recordFailure(String testName) {
         SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy-HHmmss");
         Date date = new Date(System.currentTimeMillis());
         TakesScreenshot camera = (TakesScreenshot) driver;
         File screenshot = camera.getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot, new File("src/test/resources/screenshots/test-" + formatter.format(date) + ".png"));
+            FileUtils.copyFile(screenshot, new File("src/test/resources/screenshots/" + testName + "-" + formatter.format(date) + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

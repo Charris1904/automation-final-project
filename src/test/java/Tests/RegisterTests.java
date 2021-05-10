@@ -1,16 +1,12 @@
 package Tests;
 
 import DataProvider.RegisterDataProvider;
-import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.Test;
 import PageObjects.HomePage;
 import PageObjects.RegisterPage;
 import PageObjects.SuccessPage;
 import Pojo.User;
-
-import java.time.LocalDateTime;
-import java.util.Calendar;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -29,7 +25,7 @@ public class RegisterTests extends BaseTests {
             System.out.println("User " + user.getFirstName() + " has been registered : " + user);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            recordFailure();
+            recordFailure("testUserRegister");
             Assert.fail();
         }
     }
