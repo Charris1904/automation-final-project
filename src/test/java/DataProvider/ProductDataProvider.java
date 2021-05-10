@@ -11,11 +11,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-public class ShoppingCartDataProvider {
+public class ProductDataProvider {
 
-    @DataProvider(name = "getSearchProductsDataFromJson")
-    public Object[][] getSearchProductsDataFromJson() throws FileNotFoundException {
-        JsonElement jsonData = JsonParser.parseReader( new FileReader("src/test/java/dataFiles/ShoppingCartData.json"));
+    @DataProvider(name = "getProductsDataFromJson")
+    public Object[][] getProductsDataFromJson() throws FileNotFoundException {
+        JsonElement jsonData = JsonParser.parseReader( new FileReader("src/test/java/dataFiles/ProductData.json"));
         JsonElement productDataSet = jsonData.getAsJsonObject().get("dataset");
 
         List<Product> searchProductData = new Gson().fromJson(productDataSet, new TypeToken<List<Product>>(){}.getType());

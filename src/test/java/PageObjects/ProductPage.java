@@ -40,7 +40,7 @@ public class ProductPage {
     }
 
     public String getProductPrice() {
-        System.out.println("PP " + driver.findElement(productPrice).getText());
+        System.out.println("Product Price : " + driver.findElement(productPrice).getText());
         return driver.findElement(productPrice).getText();
     }
 }

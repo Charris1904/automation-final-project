@@ -12,35 +12,31 @@ public class SearchPage {
     private By productCaption = By.xpath("//div[@class=\"caption\"]/h4");
     private By productLink = By.xpath("//div[@class=\"caption\"]/h4/a");
 
-    public SearchPage(WebDriver driver){
-        this.driver = driver;
-    }
-
     public SearchPage(WebDriver driver, String productName) {
         this.driver = driver;
         this.productName = productName;
     }
 
-    public void addProductToShoppingCart(){
-        for (int i=0; i<=5; i++){
+    public void addProductToShoppingCart() {
+        for (int i = 0; i <= 5; i++) {
             String caption = driver.findElement(productCaption).getText();
-            if(caption.equals(productName)){
+            if (caption.equals(productName)) {
                 driver.findElement(addToCartLink).click();
                 break;
             }
         }
     }
 
-    public CartPage clickShoppingCartLink(){
+    public CartPage clickShoppingCartLink() {
         driver.findElement(shoppingCartLink).click();
         return new CartPage(driver);
     }
 
-    public ProductPage clickProduct(String productName){
+    public ProductPage clickProduct() {
         ProductPage productPage = null;
-        for (int i=0; i<=5; i++){
+        for (int i = 0; i <= 5; i++) {
             String caption = driver.findElement(productCaption).getText();
-            if(caption.equals(productName)){
+            if (caption.equals(productName)) {
                 driver.findElement(productLink).click();
                 productPage = new ProductPage(driver);
                 break;
