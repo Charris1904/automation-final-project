@@ -15,17 +15,20 @@ public class RegisterDataProvider {
 
     @DataProvider(name = "getRegistersDataFromJson")
     public Object[][] getRegistersDataFromJson() throws FileNotFoundException {
-        JsonElement jsonData = JsonParser.parseReader( new FileReader("src/test/java/dataFiles/RegisterData.json"));
+        JsonElement jsonData = JsonParser.parseReader(new FileReader("src/test/java/dataFiles/RegisterData.json"));
         JsonElement usersDataSet = jsonData.getAsJsonObject().get("dataset");
-
-        List<User> userData = new Gson().fromJson(usersDataSet, new TypeToken<List<User>>(){}.getType());
-        Object[][] returnValue = new Object[userData.size()][1];
-
+        List<User> registerData = (List)(new Gson()).fromJson(usersDataSet, (new TypeToken<List<User>>() {
+        }).getType());
+        Object[][] returnValue = new Object[registerData.size()][1];
         int index = 0;
+        Object[][] var6 = returnValue;
+        int var7 = returnValue.length;
 
-        for(Object[] each: returnValue)  {
-            each[0] = userData.get(index++);
+        for(int var8 = 0; var8 < var7; ++var8) {
+            Object[] each = var6[var8];
+            each[0] = registerData.get(index++);
         }
+
         return returnValue;
     }
 }

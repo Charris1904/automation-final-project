@@ -3,30 +3,10 @@
     {
       "firstName" :  "Nombre Persona 1 ",
       "lastName" :  "Apellido Persona 1",
-      "email" :  "persona01@gmail.com",
+      "email" :  "test@gmail.com",
       "telephone" :  "12345678",
       "password" :  "persona1",
       "confirmPassword" :  "persona1",
-      "isSubscribe" :  false,
-      "privacyPolicy" :  true
-    },
-    {
-      "firstName" :  "Nombre Persona 2",
-      "lastName" :  "Apellido Persona 2",
-      "email" :  "persona02@gmail.com",
-      "telephone" :  "12345678",
-      "password" :  "persona2",
-      "confirmPassword" :  "persona2",
-      "isSubscribe" :  false,
-      "privacyPolicy" :  true
-    },
-    {
-      "firstName" :  "Nombre Persona 3",
-      "lastName" :  "Apellido Persona 3",
-      "email" :  "persona03@gmail.com",
-      "telephone" :  "12345678",
-      "password" :  "persona3",
-      "confirmPassword" :  "persona3",
       "isSubscribe" :  false,
       "privacyPolicy" :  true
     }

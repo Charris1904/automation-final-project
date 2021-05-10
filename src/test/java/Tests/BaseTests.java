@@ -1,10 +1,19 @@
 package Tests;
 
 import PageObjects.HomePage;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BaseTests {
 
@@ -23,5 +32,18 @@ public class BaseTests {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+    }
+
+    @AfterClass
+    public void recordFailure() {
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy-HHmmss");
+        Date date = new Date(System.currentTimeMillis());
+        TakesScreenshot camera = (TakesScreenshot) driver;
+        File screenshot = camera.getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, new File("src/test/resources/screenshots/test-" + formatter.format(date) + ".png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

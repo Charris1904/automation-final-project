@@ -2,6 +2,8 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SuccessPage {
 
@@ -13,6 +15,7 @@ public class SuccessPage {
     }
 
     public String getText(){
-        return driver.findElement(successMessage).getText();
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        return wait.until(ExpectedConditions.visibilityOf(driver.findElement(successMessage))).getText();
     }
 }

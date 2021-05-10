@@ -3,6 +3,9 @@ package PageObjects;
 import Pojo.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class RegisterPage {
 
@@ -17,6 +20,7 @@ public class RegisterPage {
     private By subscribeCheckBoxNo = By.xpath("//input[@name=\"newsletter\" and @value=\"0\"]");
     private By privacyPolicyCheckBox = By.xpath("//input[@name=\"agree\"]");
     private By continueButton = By.xpath("//input[@type=\"submit\"]");
+    private By warningMessage = By.xpath("//div[@class=\"alert alert-danger alert-dismissible\"]");
 
     public RegisterPage(WebDriver driver){
         this.driver = driver;
@@ -39,9 +43,13 @@ public class RegisterPage {
         }
     }
 
-    public SuccessPage clickContinueButton(){
+    public SuccessPage clickContinueButton() throws Exception {
         driver.findElement(continueButton).click();
-        return new SuccessPage(driver);
+        List<WebElement> elements = driver.findElements(warningMessage);
+        if (!elements.isEmpty() && elements.get(0).isDisplayed()){
+            throw new Exception("E-Mail Address is already registered!");
+        }else{
+            return new SuccessPage(driver);
+        }
     }
-
 }
