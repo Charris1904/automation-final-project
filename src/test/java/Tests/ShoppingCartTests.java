@@ -1,6 +1,7 @@
 package Tests;
 
 import DataProvider.ProductDataProvider;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import PageObjects.CartPage;
 import PageObjects.HomePage;
@@ -14,12 +15,18 @@ public class ShoppingCartTests extends BaseTests {
     @Test(groups = {"search"},
             dataProvider = "getProductsDataFromJson",
             dataProviderClass = ProductDataProvider.class)
-    public void testAddProductToShoppingCart(Product product){
-        HomePage homePage = new HomePage(driver, product.getName());
-        SearchPage searchPage = homePage.searchProduct();
-        searchPage.addProductToShoppingCart();
-        CartPage cart = searchPage.clickShoppingCartLink();
-        assertTrue(cart.getProductName(product.getName()).equals(product.getName()));
-        System.out.println("Product : " + product.getName() + " found in Shopping Cart");
+    public void testAddProductToShoppingCart(Product product) {
+        try {
+            HomePage homePage = new HomePage(driver, product.getName());
+            SearchPage searchPage = homePage.searchProduct();
+            searchPage.addProductToShoppingCart();
+            CartPage cart = searchPage.clickShoppingCartLink();
+            assertTrue(cart.getProductName(product.getName()).equals(product.getName()));
+            System.out.println("Product : " + product.getName() + " found in Shopping Cart");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            recordFailure("testAddProductToShoppingCart");
+            Assert.fail();
+        }
     }
 }

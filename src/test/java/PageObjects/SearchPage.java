@@ -2,6 +2,9 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class SearchPage {
 
@@ -11,6 +14,7 @@ public class SearchPage {
     private By addToCartLink = By.cssSelector(".button-group button:first-child");
     private By productCaption = By.xpath("//div[@class=\"caption\"]/h4");
     private By productLink = By.xpath("//div[@class=\"caption\"]/h4/a");
+    private By successMessage = By.xpath("//div[@class=\"alert alert-danger alert-dismissible\"]");
 
     public SearchPage(WebDriver driver, String productName) {
         this.driver = driver;
