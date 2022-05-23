@@ -1,9 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Regression" parallel="classes" thread-count="3" time-out="2400000">
+<suite name="Regression" parallel="classes" thread-count="1" time-out="2400000">
     <test name="Accenture - CxL Tests">
         <parameter name="regressionEnvironment" value="STG"/>
         <classes>
-            <!-- SMOKE PROD -->
             <class name="Tests.CurrencyTests"/>
             <class name="Tests.RegisterTests"/>
             <class name="Tests.ShoppingCartTests"/>
