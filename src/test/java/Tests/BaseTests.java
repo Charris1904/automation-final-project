@@ -22,7 +22,7 @@ public class BaseTests {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:/Users/angela.charris.bueno/Documents/innolab/chromeDriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://demo.opencart.com/");
         driver.manage().window().maximize();
